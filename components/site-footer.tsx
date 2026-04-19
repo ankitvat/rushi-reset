@@ -11,11 +11,11 @@ export function SiteFooter() {
       <div className="relative mx-auto grid w-full max-w-[110rem] gap-12 px-6 py-20 md:grid-cols-[1.4fr_1fr_1fr] md:px-10">
         <div>
           <Image
-            src="/logo.svg"
+            src="/logo-mark.png"
             alt="Rushi Reset"
-            width={180}
-            height={110}
-            className="h-14 w-auto brightness-0 invert"
+            width={410}
+            height={384}
+            className="h-24 w-auto object-contain mix-blend-lighten md:h-28"
           />
           <span className="sr-only">Rushi Reset</span>
           <p className="mt-6 max-w-sm text-pretty text-primary-foreground/75">
