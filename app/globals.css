@@ -53,17 +53,18 @@
 }
 
 :root {
-  /* Brand: #395A1C primary (text), #C6CF75 background, #D9822F accent */
+  /* Brand: #395A1C primary (text), warm white background, #D9822F accent */
   --leaf: #395a1c;
   --leaf-soft: #4f7a2b;
   --meadow: #c6cf75;
   --meadow-soft: #d4dc92;
   --ember: #d9822f;
   --ember-soft: #e49a58;
+  --warm-white: #fbf6ea;
   --cream: #f5f1e4;
   --ink: #23301a;
 
-  --background: var(--meadow);
+  --background: var(--warm-white);
   --foreground: var(--leaf);
   --card: var(--cream);
   --card-foreground: var(--leaf);

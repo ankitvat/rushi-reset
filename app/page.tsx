@@ -5,6 +5,7 @@ import { Marquee } from "@/components/marquee";
 import { Shimmer } from "@/components/shimmer";
 import { ParallaxShimmer } from "@/components/parallax-shimmer";
 import { HeroMouse, MouseLayer } from "@/components/hero-mouse";
+import { SketchArrow } from "@/components/sketch-arrow";
 
 const services = [
   {
@@ -326,8 +327,11 @@ export default function Home() {
 
       {/* CTA */}
       <section className="relative overflow-hidden px-6 pb-28 md:px-10 md:pb-40">
-        <div className="relative mx-auto w-full max-w-[110rem] overflow-hidden rounded-[2.5rem] bg-accent p-10 text-accent-foreground md:p-20">
-          <div className="pointer-events-none absolute -top-20 -right-20 h-96 w-96 rounded-full bg-primary/40 blur-3xl" />
+        <div className="relative mx-auto w-full max-w-[110rem] overflow-hidden rounded-[2.5rem] border border-white/50 bg-[linear-gradient(135deg,color-mix(in_oklab,var(--cream)_78%,transparent),color-mix(in_oklab,var(--meadow)_62%,transparent))] p-10 text-primary shadow-[0_28px_90px_-45px_rgba(35,48,26,0.55),inset_0_1px_0_rgba(255,255,255,0.65)] backdrop-blur-2xl md:p-20">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_28%,rgba(255,255,255,0.62),transparent_34%),radial-gradient(circle_at_18%_78%,color-mix(in_oklab,var(--meadow)_38%,transparent),transparent_38%)]" />
+          <div className="pointer-events-none absolute -top-24 -right-20 size-112 rounded-full bg-white/30 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-28 left-1/3 h-80 w-80 rounded-full bg-primary/8 blur-3xl" />
+          <SketchArrow />
           <div className="relative grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-8">
               <p className="text-xs uppercase tracking-[0.3em]">
@@ -337,14 +341,14 @@ export default function Home() {
                 Start putting yourself first.
               </h2>
             </Reveal>
-            <Reveal delay={0.2} className="md:col-span-4">
-              <p className="mb-8 text-accent-foreground/90">
+            <Reveal delay={0.2} className="relative md:col-span-4">
+              <p className="relative z-10 mb-8 text-primary/80">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. A free
                 30-minute chat to see if we&apos;re a fit.
               </p>
               <Link
                 href="/book"
-                className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-4 text-sm text-primary-foreground transition-colors hover:bg-foreground"
+                className="relative z-10 group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-4 text-sm text-primary-foreground transition-colors hover:bg-foreground"
               >
                 Book a free chat
                 <span
