@@ -22,7 +22,7 @@ export function ParallaxText({
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    [`${-20 * baseVelocity}%`, `${20 * baseVelocity}%`]
+    [`${-20 * baseVelocity}%`, `${20 * baseVelocity}%`],
   );
 
   return (
@@ -32,7 +32,7 @@ export function ParallaxText({
     >
       <motion.p
         style={{ x }}
-        className="whitespace-nowrap font-[family-name:var(--font-display)] text-[16vw] leading-[0.9] tracking-tight"
+        className="whitespace-nowrap font-[family-name:var(--font-display)] text-[8vw] leading-[0.9] tracking-tight"
       >
         {children}
       </motion.p>

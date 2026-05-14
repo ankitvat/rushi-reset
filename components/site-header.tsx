@@ -10,11 +10,13 @@ import {
 } from "motion/react";
 import { useEffect, useState } from "react";
 import { MobileNav } from "@/components/mobile-nav";
+import { CALENDLY_URL } from "@/lib/utils";
 
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/book", label: "Book" },
+  { href: "/plans", label: "Plans" },
+  { href: CALENDLY_URL, label: "Book a chat", external: true },
 ];
 
 type HeaderTheme = "light" | "dark";
@@ -92,7 +94,7 @@ export function SiteHeader() {
             className="relative inline-flex items-baseline gap-2 font-[family-name:var(--font-display)] text-2xl leading-none tracking-tight md:text-[1.75rem]"
           >
             <span>Rushi</span>
-            <span className="text-accent">Reset</span>
+            <span className="italic text-accent">Reset</span>
           </motion.span>
           <span
             aria-hidden
@@ -102,10 +104,13 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-1 md:flex">
           {navItems.map((item, i) => {
+            const isExternal = "external" in item && item.external === true;
             const active =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(item.href);
+              isExternal
+                ? false
+                : item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
             return (
               <motion.div
                 key={item.href}
@@ -121,6 +126,7 @@ export function SiteHeader() {
                   href={item.href}
                   label={item.label}
                   active={active}
+                  external={isExternal}
                 />
               </motion.div>
             );
@@ -146,15 +152,18 @@ interface NavLinkProps {
   href: string;
   label: string;
   active: boolean;
+  external?: boolean;
 }
 
-function NavLink({ href, label, active }: NavLinkProps) {
-  return (
-    <Link
-      href={href}
-      aria-current={active ? "page" : undefined}
-      className="group relative isolate rounded-full px-4 py-2 text-sm tracking-wide opacity-80 transition-opacity duration-300 hover:opacity-100"
-    >
+function NavLink({ href, label, active, external }: NavLinkProps) {
+  const sharedClass =
+    "group relative isolate rounded-full px-4 py-2 text-sm tracking-wide opacity-80 transition-opacity duration-300 hover:opacity-100";
+  const sharedProps = {
+    "aria-current": active ? ("page" as const) : undefined,
+    className: sharedClass,
+  };
+  const inner = (
+    <>
       {active && (
         <motion.span
           layoutId="nav-pill"
@@ -188,6 +197,25 @@ function NavLink({ href, label, active }: NavLinkProps) {
           </span>
         </span>
       </span>
+    </>
+  );
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        {...sharedProps}
+      >
+        {inner}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} {...sharedProps}>
+      {inner}
     </Link>
   );
 }
@@ -216,8 +244,10 @@ interface CtaButtonProps {
 
 function CtaButton({ isDark }: CtaButtonProps) {
   return (
-    <Link
-      href="/book"
+    <a
+      href={CALENDLY_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       aria-label="Book a free chat"
       className="group inline-flex items-center gap-3 text-sm font-medium tracking-wide"
     >
@@ -247,6 +277,6 @@ function CtaButton({ isDark }: CtaButtonProps) {
           </span>
         </span>
       </span>
-    </Link>
+    </a>
   );
 }

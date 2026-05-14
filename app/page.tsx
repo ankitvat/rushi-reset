@@ -1,35 +1,63 @@
+import Image from "next/image";
 import Link from "next/link";
+import { CALENDLY_URL } from "@/lib/utils";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
-import { ParallaxText } from "@/components/parallax-text";
 import { Marquee } from "@/components/marquee";
-import { Shimmer } from "@/components/shimmer";
-import { ParallaxShimmer } from "@/components/parallax-shimmer";
 import { HeroMouse, MouseLayer } from "@/components/hero-mouse";
 import { SketchArrow } from "@/components/sketch-arrow";
+import { TestimonialsMarquee } from "@/components/testimonials-marquee";
 
-const services = [
+const usp = [
   {
     tag: "01",
-    title: "1:1 Coaching",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A twelve-week private container built around your rhythm, your goals, and your season of life.",
+    title: "I've lived it",
+    body: "Lost 35 kgs and kept it off long-term. I don't just guide — I follow everything I teach.",
   },
   {
     tag: "02",
-    title: "Group Workshops",
-    body: "Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Small-group reset circles for friends, teams, or community gatherings.",
+    title: "Practical, not theoretical",
+    body: "No crash diets, no extreme cardio. A real-life system you can sustain at home, at work, with family.",
   },
   {
     tag: "03",
-    title: "Corporate",
-    body: "Vestibulum ac diam sit amet quam vehicula elementum. Speaking, workshops, and ongoing wellness programming for purpose-led companies.",
+    title: "One complete system",
+    body: "Fitness, nutrition, sleep, gut, hormones, mindset — woven together. Not a diet plan, a lifestyle.",
   },
 ];
 
 const promises = [
-  "Joy over restriction",
-  "Small, sustainable shifts",
-  "Science-backed habit design",
-  "Whole-person wellness",
+  "Sustainable fat loss",
+  "Strength & muscle",
+  "Hormonal balance",
+  "Gut reset",
+  "Better sleep & energy",
+];
+
+const approach = [
+  "Nutrition & food habits",
+  "Strength training & movement",
+  "Sleep & recovery",
+  "Gut health & digestion",
+  "Hormonal balance",
+  "Your relationship with food",
+];
+
+const whoIHelp = [
+  "Sustainable fat loss",
+  "Muscle building & body recomposition",
+  "Reversing lifestyle disorders",
+  "Gut reset",
+  "PCOS, thyroid & hormonal balance",
+  "Better energy, digestion, skin & hair",
+];
+
+const results = [
+  { n: "01", t: "Fat loss without extreme dieting" },
+  { n: "02", t: "Improved strength and muscle tone" },
+  { n: "03", t: "Better hormonal balance" },
+  { n: "04", t: "Clearer skin & healthier hair" },
+  { n: "05", t: "Improved sleep and energy" },
+  { n: "06", t: "A lifestyle you can sustain for life" },
 ];
 
 export default function Home() {
@@ -48,39 +76,38 @@ export default function Home() {
                 <Reveal>
                   <p className="mb-8 inline-flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-foreground/70">
                     <span className="h-px w-10 bg-accent" />
-                    Holistic Health &amp; Wellness Coach
+                    IIN Certified Health Coach
                   </p>
                 </Reveal>
               </MouseLayer>
               <MouseLayer depth={8} invert>
                 <Stagger gap={0.08}>
-                  <h1 className="font-[family-name:var(--font-display)] text-[13vw] leading-[0.9] tracking-tighter md:text-[9vw]">
+                  <h1 className="font-[family-name:var(--font-display)] text-[13vw] leading-[0.9] tracking-tighter md:text-[8.5vw]">
                     <StaggerItem>
-                      <span className="block">Fall in love</span>
+                      <span className="block">Transform your body.</span>
                     </StaggerItem>
                     <StaggerItem>
                       <span className="block italic text-accent">
-                        with your
+                        Reset your lifestyle.
                       </span>
-                    </StaggerItem>
-                    <StaggerItem>
-                      <span className="block">lifestyle.</span>
                     </StaggerItem>
                   </h1>
                 </Stagger>
               </MouseLayer>
               <MouseLayer depth={20}>
-                <Reveal delay={0.4} className="mt-10 max-w-md">
-                  <p className="text-pretty text-lg text-foreground/80">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Personalised coaching that leads with joy — never
-                    restriction — to help you design a way of living you
-                    actually love.
+                <Reveal delay={0.4} className="mt-10 max-w-xl">
+                  <p className="text-pretty text-lg text-foreground/80 mt-20">
+                    I&apos;m Aarushi Chawla, an IIN-certified health coach who
+                    doesn&apos;t just teach health — I&apos;ve lived it. After
+                    losing 35 kgs and rebuilding my body and lifestyle from the
+                    ground up, I now help you do the same — sustainably.
                   </p>
                 </Reveal>
                 <Reveal delay={0.55} className="mt-10 flex flex-wrap gap-4">
-                  <Link
-                    href="/book"
+                  <a
+                    href={CALENDLY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-4 text-sm text-primary-foreground transition-all hover:bg-accent hover:text-accent-foreground"
                   >
                     Book a free chat
@@ -90,12 +117,12 @@ export default function Home() {
                     >
                       →
                     </span>
-                  </Link>
+                  </a>
                   <Link
-                    href="/about"
+                    href="/plans"
                     className="inline-flex items-center gap-3 rounded-full border border-foreground/30 px-7 py-4 text-sm transition-colors hover:border-foreground"
                   >
-                    Meet Rushi
+                    See plans
                   </Link>
                 </Reveal>
               </MouseLayer>
@@ -104,67 +131,90 @@ export default function Home() {
             <div className="relative md:col-span-5">
               <MouseLayer depth={42}>
                 <Reveal y={60}>
-                  <ParallaxShimmer
-                    strength={70}
-                    className="aspect-[4/5] w-full rounded-[2rem]"
-                  />
+                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1rem] shadow-[0_24px_70px_-40px_rgba(35,48,26,0.45)]">
+                    <Image
+                      src="/workout-image.jpg"
+                      alt="Strength training and movement — part of a sustainable coaching approach"
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 768px) 40vw, 100vw"
+                      priority
+                    />
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(35,48,26,0.25)_0%,transparent_40%)]"
+                    />
+                  </div>
                 </Reveal>
               </MouseLayer>
               <MouseLayer depth={60} invert>
                 <Reveal delay={0.25} y={40}>
-                  <div className="absolute -bottom-8 -left-6 hidden w-56 rounded-3xl bg-card p-5 shadow-[0_20px_60px_-30px_rgba(35,48,26,0.45)] md:block">
+                  <div className="absolute -bottom-8 -left-6 hidden w-60 rounded-3xl bg-card p-5 shadow-[0_20px_60px_-30px_rgba(35,48,26,0.45)] md:block">
                     <p className="text-xs uppercase tracking-[0.2em] text-foreground/60">
-                      NBC-HWC certified
+                      Down 35 kgs · Kept off
                     </p>
                     <p className="mt-2 font-[family-name:var(--font-display)] text-2xl leading-tight">
-                      Trusted by 200+ clients worldwide
+                      Lived it. Now I coach it.
                     </p>
                   </div>
                 </Reveal>
               </MouseLayer>
             </div>
           </div>
-
-          <div className="mt-24 md:mt-40">
-            <ParallaxText baseVelocity={-0.6}>
-              lead with joy — not restriction —
-            </ParallaxText>
-          </div>
         </section>
       </HeroMouse>
 
-      {/* INTRO / INTENTION */}
+      {/* ABOUT ME (intro) */}
       <section className="relative px-6 py-28 md:px-10 md:py-40">
         <div className="mx-auto grid w-full max-w-[110rem] gap-12 md:grid-cols-12">
           <Reveal className="md:col-span-4">
             <p className="text-xs uppercase tracking-[0.3em] text-foreground/70">
-              (Intention)
+              (About me)
             </p>
           </Reveal>
           <div className="md:col-span-8">
             <Reveal>
               <h2 className="font-[family-name:var(--font-display)] text-4xl leading-[1.05] tracking-tight md:text-6xl">
-                A warm, relaxed space where
-                <span className="italic text-accent"> you truly belong </span>
-                — and leave feeling uplifted, confident, and genuinely you.
+                At 18, I weighed 84 kgs.
+                <span className="italic text-accent">
+                  {" "}
+                  Today, I embody the results{" "}
+                </span>
+                — not just teach them.
               </h2>
             </Reveal>
             <div className="mt-12 grid gap-10 md:grid-cols-2">
               <Reveal delay={0.15}>
                 <p className="text-foreground/80">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                  aliquam, nisl at aliquet interdum, risus libero tempor nisl,
-                  non pretium mauris arcu vitae justo.
+                  I struggled with binge eating, stress eating, and a sedentary
+                  lifestyle. Conventional diets only brought hair fall, acne,
+                  and hormonal imbalances. So I took control — studied nutrition
+                  deeply, experimented on myself, and learned what actually
+                  works.
                 </p>
               </Reveal>
               <Reveal delay={0.3}>
                 <p className="text-foreground/80">
-                  Praesent euismod, nisl eget aliquet luctus, sapien lectus
-                  pharetra lorem, ut volutpat sapien mauris non justo. A whole-
-                  person approach rooted in behaviour change science.
+                  Over the years, I lost 35 kgs, built muscle, and transformed
+                  not just my body — but my skin, hair, sleep, and lifestyle.
+                  Now I help others walk the same road, without the guesswork.
                 </p>
               </Reveal>
             </div>
+            <Reveal delay={0.4} className="mt-10">
+              <Link
+                href="/about"
+                className="group inline-flex items-center gap-3 text-sm tracking-wide text-accent"
+              >
+                Read the full story
+                <span
+                  aria-hidden
+                  className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -172,29 +222,93 @@ export default function Home() {
       {/* PROMISES MARQUEE */}
       <Marquee items={promises} />
 
-      {/* SERVICES */}
+      {/* MY STORY — sticky image + steps */}
+      <section className="relative px-6 py-28 md:px-10 md:py-40">
+        <div className="mx-auto grid w-full max-w-[110rem] gap-10 md:grid-cols-12 md:gap-16">
+          <div className="md:col-span-5">
+            <div className="md:sticky md:top-28">
+              <Reveal>
+                <p className="text-xs uppercase tracking-[0.3em] text-foreground/70">
+                  (My story)
+                </p>
+                <h2 className="mt-4 font-[family-name:var(--font-display)] text-5xl leading-[1] tracking-tight md:text-6xl">
+                  A decade-long
+                  <span className="italic text-accent"> unlearning.</span>
+                </h2>
+              </Reveal>
+              <Reveal delay={0.15}>
+                <p className="mt-6 max-w-md text-foreground/80">
+                  For years, I felt stuck in a body I wasn&apos;t confident in.
+                  What started as a personal mission turned into a decade of
+                  learning, unlearning, and rebuilding.
+                </p>
+              </Reveal>
+            </div>
+          </div>
+          <Stagger gap={0.1} className="md:col-span-7 space-y-6">
+            {[
+              { from: "Crash diets", to: "Sustainable nutrition" },
+              { from: "Only cardio", to: "Strength training" },
+              { from: "Restriction", to: "Balance" },
+              { from: "Confusion", to: "Clarity" },
+            ].map((row) => (
+              <StaggerItem
+                key={row.from}
+                className="grid grid-cols-[1fr_auto_1fr] items-center gap-6 border-t border-border/70 pt-6"
+              >
+                <span className="text-lg text-foreground/60 line-through decoration-foreground/30">
+                  {row.from}
+                </span>
+                <span
+                  aria-hidden
+                  className="font-[family-name:var(--font-display)] text-2xl text-accent"
+                >
+                  →
+                </span>
+                <span className="font-[family-name:var(--font-display)] text-2xl tracking-tight md:text-3xl">
+                  {row.to}
+                </span>
+              </StaggerItem>
+            ))}
+            <Reveal delay={0.4}>
+              <p className="mt-10 font-[family-name:var(--font-display)] text-2xl leading-[1.3] tracking-tight md:text-3xl">
+                Health is not just about food — it&apos;s about your
+                <span className="italic text-accent"> entire lifestyle.</span>
+              </p>
+            </Reveal>
+          </Stagger>
+        </div>
+      </section>
+
+      {/* WHY WORK WITH ME (USP) */}
       <section className="relative px-6 py-28 md:px-10 md:py-40">
         <div className="mx-auto w-full max-w-[110rem]">
           <div className="grid gap-10 md:grid-cols-12">
             <Reveal className="md:col-span-4">
               <p className="text-xs uppercase tracking-[0.3em] text-foreground/70">
-                (Work with me)
+                (Why work with me)
               </p>
               <h2 className="mt-4 font-[family-name:var(--font-display)] text-5xl leading-[1] tracking-tight md:text-7xl">
-                Ways in.
+                Lived it.
+                <br />
+                <span className="italic text-accent">Not read it.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.2} className="md:col-span-6 md:col-start-7">
               <p className="max-w-md text-foreground/80">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Whether
-                you&apos;re just beginning or ready to go deep, there is a room
-                for you here.
+                You&apos;re not learning from someone who read it in a book —
+                you&apos;re learning from someone who has lived it. My approach
+                combines fitness, nutrition, and lifestyle into one system, and
+                I work closely with my clients like a coach and a buddy.
               </p>
             </Reveal>
           </div>
 
-          <Stagger gap={0.12} className="mt-20 grid gap-px bg-border/70 md:grid-cols-3">
-            {services.map((s) => (
+          <Stagger
+            gap={0.12}
+            className="mt-20 grid gap-px bg-border/70 md:grid-cols-3"
+          >
+            {usp.map((s) => (
               <StaggerItem
                 key={s.tag}
                 className="group relative flex flex-col gap-6 bg-background p-8 transition-colors duration-500 hover:bg-card md:p-12"
@@ -214,22 +328,13 @@ export default function Home() {
                   {s.title}
                 </h3>
                 <p className="text-foreground/75">{s.body}</p>
-                <Link
-                  href="/book"
-                  className="mt-auto inline-flex items-center gap-2 text-sm text-accent"
-                >
-                  Learn more
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </Link>
               </StaggerItem>
             ))}
           </Stagger>
         </div>
       </section>
 
-      {/* APPROACH — image + sticky copy */}
+      {/* APPROACH */}
       <section
         data-header-theme="dark"
         className="relative bg-primary text-primary-foreground"
@@ -237,92 +342,230 @@ export default function Home() {
         <div className="mx-auto grid w-full max-w-[110rem] gap-10 px-6 py-28 md:grid-cols-12 md:gap-16 md:px-10 md:py-40">
           <div className="md:col-span-6">
             <Reveal>
-              <ParallaxShimmer
-                strength={60}
-                className="aspect-[4/5] w-full rounded-[2rem]"
-              />
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] ring-1 ring-primary-foreground/15 shadow-[0_24px_70px_-40px_rgba(0,0,0,0.35)]">
+                <Image
+                  src="/workout-2.jpg"
+                  alt="Strength training and recovery — movement, hydration, and sustainable fitness habits"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 768px) 45vw, 100vw"
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(35,48,26,0.45)_0%,transparent_45%)]"
+                />
+              </div>
             </Reveal>
           </div>
           <div className="md:col-span-6">
             <div className="md:sticky md:top-28">
               <Reveal>
                 <p className="text-xs uppercase tracking-[0.3em] text-primary-foreground/60">
-                  (The approach)
+                  (My approach)
                 </p>
               </Reveal>
               <Reveal delay={0.1}>
                 <h2 className="mt-4 font-[family-name:var(--font-display)] text-5xl leading-[1.02] tracking-tight md:text-7xl">
-                  Small, joyful shifts — held gently over time.
+                  No quick fixes. A
+                  <span className="italic text-accent"> lifestyle </span>
+                  transformation.
                 </h2>
               </Reveal>
-              <Stagger gap={0.12} className="mt-10 space-y-6">
-                {[
-                  {
-                    n: "01",
-                    t: "Discovery",
-                    d: "Lorem ipsum. We map where you are, where you want to go, and what&apos;s quietly been in the way.",
-                  },
-                  {
-                    n: "02",
-                    t: "Design",
-                    d: "Curabitur non nulla. Together we design a rhythm that works with your real life — not against it.",
-                  },
-                  {
-                    n: "03",
-                    t: "Devotion",
-                    d: "Vestibulum ac diam. Weekly support, gentle accountability, and steady recalibration.",
-                  },
-                ].map((step) => (
+              <Reveal delay={0.2}>
+                <p className="mt-8 max-w-md text-primary-foreground/80">
+                  Instead of just handing you a plan, I teach you how your body
+                  works — so you can take control of your health for life.
+                </p>
+              </Reveal>
+              <Stagger gap={0.07} className="mt-10 grid gap-3 sm:grid-cols-2">
+                {approach.map((item, i) => (
                   <StaggerItem
-                    key={step.n}
-                    className="flex gap-6 border-t border-primary-foreground/20 pt-6"
+                    key={item}
+                    className="flex items-center gap-4 border-t border-primary-foreground/20 py-4"
                   >
-                    <span className="font-[family-name:var(--font-display)] text-2xl text-accent">
-                      {step.n}
+                    <span className="font-[family-name:var(--font-display)] text-sm text-accent">
+                      {String(i + 1).padStart(2, "0")}
                     </span>
-                    <div>
-                      <h3 className="font-[family-name:var(--font-display)] text-2xl">
-                        {step.t}
-                      </h3>
-                      <p
-                        className="mt-2 text-primary-foreground/75"
-                        dangerouslySetInnerHTML={{ __html: step.d }}
-                      />
-                    </div>
+                    <span className="text-primary-foreground/90">{item}</span>
                   </StaggerItem>
                 ))}
               </Stagger>
+              <Reveal delay={0.5} className="mt-10">
+                <p className="font-[family-name:var(--font-display)] text-2xl leading-[1.3] tracking-tight md:text-3xl">
+                  My goal: this should be the
+                  <span className="italic text-accent">
+                    {" "}
+                    last nutrition plan{" "}
+                  </span>
+                  you ever need.
+                </p>
+              </Reveal>
             </div>
           </div>
         </div>
       </section>
 
-      {/* TESTIMONIAL */}
+      {/* WHO I HELP */}
       <section className="relative px-6 py-28 md:px-10 md:py-40">
+        <div className="mx-auto w-full max-w-[110rem]">
+          <div className="grid gap-10 md:grid-cols-12">
+            <Reveal className="md:col-span-5">
+              <p className="text-xs uppercase tracking-[0.3em] text-foreground/70">
+                (Who I help)
+              </p>
+              <h2 className="mt-4 font-[family-name:var(--font-display)] text-5xl leading-[1] tracking-tight md:text-7xl">
+                For people ready to
+                <span className="italic text-accent"> rebuild.</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.2} className="md:col-span-6 md:col-start-7">
+              <p className="max-w-md text-foreground/80">
+                I work with individuals who want to build a healthy lifestyle —
+                not just follow another diet. If any of these feel like you,
+                you&apos;re in the right place.
+              </p>
+            </Reveal>
+          </div>
+
+          <Stagger
+            gap={0.08}
+            className="mt-16 grid gap-px bg-border/70 sm:grid-cols-2 md:grid-cols-3"
+          >
+            {whoIHelp.map((item, i) => (
+              <StaggerItem
+                key={item}
+                className="flex items-start gap-5 bg-background p-8 md:p-10"
+              >
+                <span className="font-[family-name:var(--font-display)] text-3xl text-accent">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-[family-name:var(--font-display)] text-2xl leading-tight tracking-tight md:text-3xl">
+                  {item}
+                </span>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      {/* RESULTS */}
+      <section className="relative px-6 py-28 md:px-10 md:py-40">
+        <div className="mx-auto grid w-full max-w-[110rem] gap-12 md:grid-cols-12">
+          <Reveal className="md:col-span-4">
+            <p className="text-xs uppercase tracking-[0.3em] text-foreground/70">
+              (Results you can expect)
+            </p>
+            <h2 className="mt-4 font-[family-name:var(--font-display)] text-5xl leading-[1] tracking-tight md:text-6xl">
+              What changes
+              <span className="italic text-accent"> from the inside out.</span>
+            </h2>
+          </Reveal>
+          <Stagger
+            gap={0.08}
+            className="md:col-span-7 md:col-start-6 grid gap-px bg-border/70 sm:grid-cols-2"
+          >
+            {results.map((r) => (
+              <StaggerItem
+                key={r.n}
+                className="flex items-center gap-6 bg-background p-8"
+              >
+                <span className="font-[family-name:var(--font-display)] text-2xl text-accent">
+                  {r.n}
+                </span>
+                <span className="text-lg text-foreground/85">{r.t}</span>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      {/* CLIENT TESTIMONIALS + TRANSFORMATIONS — full-bleed marquee */}
+      <section className="relative py-28 md:py-40">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-1/2 bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,color-mix(in_oklab,var(--cream)_60%,transparent)_0%,transparent_70%)]"
+        />
+        <div className="mx-auto max-w-3xl px-6 text-center md:px-10">
+          <Reveal>
+            <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
+              (Real clients · Real change)
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h2 className="mt-4 font-[family-name:var(--font-display)] text-5xl leading-[1] tracking-tight md:text-7xl">
+              Testimonials &amp;
+              <br />
+              <span className="italic text-accent">transformations.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.25}>
+            <p className="mx-auto mt-6 max-w-xl text-foreground/75">
+              Bodies rebuilt. Hormones reset. Habits rewired. A glimpse at the
+              kind of change my clients have walked into.
+            </p>
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.35} y={40} className="mt-14 md:mt-20">
+          <TestimonialsMarquee />
+        </Reveal>
+      </section>
+
+      {/* EMBODIMENT */}
+      <section className="relative px-6 py-20 md:px-10 md:py-28">
         <div className="mx-auto w-full max-w-5xl text-center">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
-              (What clients say)
+              (Embodiment over theory)
             </p>
           </Reveal>
           <Reveal delay={0.1}>
             <blockquote className="mt-10 font-[family-name:var(--font-display)] text-3xl leading-[1.2] tracking-tight md:text-5xl">
-              &ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              For the first time in years I feel{" "}
-              <span className="italic text-accent">in rhythm</span> with myself
-              — gentle, energised, and genuinely enjoying the process.&rdquo;
+              &ldquo;Your body is{" "}
+              <span className="italic text-accent">
+                not &lsquo;fixed&rsquo; by genetics
+              </span>{" "}
+              — you can completely transform it with the right approach.
+              I&apos;m living proof.&rdquo;
             </blockquote>
           </Reveal>
           <Reveal delay={0.3}>
             <div className="mt-10 inline-flex items-center gap-4">
-              <Shimmer className="h-12 w-12" rounded="full" />
+              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-muted ring-1 ring-foreground/10">
+                <Image
+                  src="/thumb-image.jpg"
+                  alt="Aarushi Chawla"
+                  fill
+                  className="object-cover"
+                  sizes="48px"
+                />
+              </div>
               <div className="text-left text-sm">
-                <p className="font-medium">Rowan M.</p>
-                <p className="text-foreground/60">1:1 client, 12 weeks</p>
+                <p className="font-medium">Aarushi Chawla</p>
+                <p className="text-foreground/60">
+                  IIN Certified · Down 35 kgs
+                </p>
               </div>
             </div>
           </Reveal>
         </div>
+      </section>
+
+      {/* IMPORTANT NOTE */}
+      <section className="relative px-6 pb-12 md:px-10 md:pb-20">
+        <Reveal>
+          <div className="mx-auto w-full max-w-[80rem] rounded-3xl border border-border/70 bg-card/60 p-8 md:p-12">
+            <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
+              (Important note)
+            </p>
+            <p className="mt-4 text-pretty text-lg text-foreground/85 md:text-xl">
+              I work on reversing lifestyle-related issues such as PCOS, thyroid
+              imbalances, and metabolic concerns through nutrition and lifestyle
+              changes. For medical conditions requiring clinical treatment, I
+              always recommend working alongside a doctor.
+            </p>
+          </div>
+        </Reveal>
       </section>
 
       {/* CTA */}
@@ -338,26 +581,38 @@ export default function Home() {
                 (Ready to begin)
               </p>
               <h2 className="mt-6 font-[family-name:var(--font-display)] text-5xl leading-[1] tracking-tight md:text-8xl">
-                Start putting yourself first.
+                Stop dieting.
+                <br />
+                <span className="italic">Start transforming.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.2} className="relative md:col-span-4">
               <p className="relative z-10 mb-8 text-primary/80">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. A free
-                30-minute chat to see if we&apos;re a fit.
+                Let&apos;s build a body and lifestyle you can sustain for life.
+                A free 30-minute call to see if we&apos;re a fit.
               </p>
-              <Link
-                href="/book"
-                className="relative z-10 group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-4 text-sm text-primary-foreground transition-colors hover:bg-foreground"
-              >
-                Book a free chat
-                <span
-                  aria-hidden
-                  className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+              <div className="relative z-10 flex flex-wrap gap-4">
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-4 text-sm text-primary-foreground transition-colors hover:bg-foreground"
                 >
-                  →
-                </span>
-              </Link>
+                  Book a free chat
+                  <span
+                    aria-hidden
+                    className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </a>
+                <Link
+                  href="/plans"
+                  className="inline-flex items-center gap-3 rounded-full border border-primary/40 px-7 py-4 text-sm transition-colors hover:border-primary"
+                >
+                  See plans
+                </Link>
+              </div>
             </Reveal>
           </div>
         </div>

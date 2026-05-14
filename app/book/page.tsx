@@ -4,26 +4,26 @@ import { ParallaxShimmer } from "@/components/parallax-shimmer";
 import { HeroMouse, MouseLayer } from "@/components/hero-mouse";
 
 export const metadata = {
-  title: "Book a chat — Rushi Reset",
+  title: "Book a chat — Aarushi Chawla",
   description:
-    "Start the conversation. Book a free 30-minute discovery chat with Rushi.",
+    "Start the conversation. Book a free 30-minute discovery call with Aarushi Chawla.",
 };
 
 const expect = [
   {
     n: "01",
-    t: "A gentle welcome",
-    d: "Lorem ipsum dolor sit amet. No sales pressure. Just space to talk, be heard, and feel what&apos;s possible.",
+    t: "A real conversation",
+    d: "No sales pressure. Space to share where you are, what you&apos;ve tried, and what you actually want from your body.",
   },
   {
     n: "02",
-    t: "Clarity on fit",
-    d: "Consectetur adipiscing elit. We&apos;ll explore what you&apos;re navigating and whether 1:1, group, or something else is the right next step.",
+    t: "Clarity on the right plan",
+    d: "We&apos;ll talk through your goals, lifestyle, and history — and figure out whether 1, 3, or 6 months is the right fit.",
   },
   {
     n: "03",
-    t: "A calm next step",
-    d: "Curabitur non nulla. If we feel like a fit, you&apos;ll leave with a clear invitation. If not, you&apos;ll leave with perspective. Either is a win.",
+    t: "A clear next step",
+    d: "You&apos;ll leave with either an invitation to begin, or perspective on what to do next. Either is a win.",
   },
 ];
 
@@ -56,9 +56,9 @@ export default function BookPage() {
             <MouseLayer depth={22}>
               <Reveal delay={0.2} className="mt-8 max-w-2xl">
                 <p className="text-pretty text-lg text-foreground/80">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tell
-                  me a little about you and what you&apos;re hoping for — then
-                  pick a time that feels good. I can&apos;t wait to meet you.
+                  Tell me a little about you and where you&apos;re at — then
+                  pick a time that feels good. I&apos;ll review your details
+                  before our call so we can make every minute count.
                 </p>
               </Reveal>
             </MouseLayer>
@@ -80,7 +80,7 @@ export default function BookPage() {
                   Reach out directly
                 </p>
                 <p className="mt-3 font-[family-name:var(--font-display)] text-2xl leading-tight">
-                  hello@rushireset.com
+                  rushireset@gmail.com
                 </p>
                 <p className="mt-3 text-sm text-foreground/70">
                   Mon – Fri · replies within 24 hours
@@ -160,19 +160,23 @@ export default function BookPage() {
             {[
               {
                 q: "Is the discovery call really free?",
-                a: "Lorem ipsum dolor sit amet. Yes — a full 30 minutes, no strings attached.",
+                a: "Yes — a full 30 minutes, no strings attached. It&apos;s how we both figure out if we&apos;re a fit.",
               },
               {
-                q: "How long do programmes usually run?",
-                a: "Consectetur adipiscing elit. 1:1 containers typically run 12 weeks, with options to extend.",
+                q: "Which plan duration should I pick?",
+                a: "1 month is great for beginners. 3 months is the sweet spot for visible transformation. 6 months is for complete lifestyle overhauls and reversing lifestyle disorders. We&apos;ll decide together on the call.",
               },
               {
-                q: "Do you work with clients outside the UK?",
-                a: "Curabitur non nulla. Absolutely — sessions happen online and I work across most time zones.",
+                q: "Do you work with PCOS, thyroid, and hormonal issues?",
+                a: "Yes. I work on reversing lifestyle-related issues through nutrition and lifestyle changes. For medical conditions requiring clinical treatment, I recommend working alongside your doctor.",
               },
               {
-                q: "What if I&apos;m not sure what I need yet?",
-                a: "Vestibulum ac diam. That&apos;s exactly what the discovery call is for. Come as you are.",
+                q: "Can I do this if I work out at home (no gym)?",
+                a: "Absolutely. Workout plans are built around your setup — home, gym, or hybrid. We design around your real life.",
+              },
+              {
+                q: "How does support work between calls?",
+                a: "You get 24/7 WhatsApp access to me and my trained team for doubts, accountability, restaurant menus, weekend dinners — anything that comes up.",
               },
             ].map((item) => (
               <StaggerItem key={item.q}>

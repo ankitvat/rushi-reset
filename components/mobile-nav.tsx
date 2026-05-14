@@ -3,10 +3,12 @@
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { CALENDLY_URL } from "@/lib/utils";
 
 interface NavItem {
   href: string;
   label: string;
+  external?: boolean;
 }
 
 interface MobileNavProps {
@@ -75,13 +77,25 @@ export function MobileNav({ items }: MobileNavProps) {
                   }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <Link
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="font-[family-name:var(--font-display)] text-5xl tracking-tight"
-                  >
-                    {item.label}
-                  </Link>
+                  {item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpen(false)}
+                      className="font-[family-name:var(--font-display)] text-5xl tracking-tight"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className="font-[family-name:var(--font-display)] text-5xl tracking-tight"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </motion.div>
               ))}
               <motion.div
@@ -92,13 +106,15 @@ export function MobileNav({ items }: MobileNavProps) {
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="mt-6"
               >
-                <Link
-                  href="/book"
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm text-primary-foreground"
                 >
                   Book a free chat →
-                </Link>
+                </a>
               </motion.div>
             </motion.nav>
           </motion.div>

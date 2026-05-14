@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CALENDLY_URL } from "@/lib/utils";
 
 export function SiteFooter() {
   return (
@@ -19,9 +20,8 @@ export function SiteFooter() {
           />
           <span className="sr-only">Rushi Reset</span>
           <p className="mt-6 max-w-sm text-pretty text-primary-foreground/75">
-            Rushi Reset — lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Designing a lifestyle you love, one small joyful shift at a
-            time.
+            Rushi Reset — IIN-certified health coaching to help you transform
+            your body, reset your lifestyle, and sustain it for life.
           </p>
         </div>
 
@@ -41,9 +41,19 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
-              <Link href="/book" className="hover:text-accent">
-                Book a call
+              <Link href="/plans" className="hover:text-accent">
+                Plans
               </Link>
+            </li>
+            <li>
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent"
+              >
+                Book a call
+              </a>
             </li>
           </ul>
         </div>
@@ -74,7 +84,7 @@ export function SiteFooter() {
 
       <div className="relative mx-auto flex w-full max-w-[110rem] items-center justify-between px-6 py-6 text-xs text-primary-foreground/60 md:px-10">
         <p>© {new Date().getFullYear()} Rushi Reset. All rights reserved.</p>
-        <p>Lorem ipsum — placeholder site.</p>
+        <p>IIN · Precision Nutrition · Bodhi Nutrition Academy</p>
       </div>
 
       <div className="pointer-events-none select-none overflow-hidden">
