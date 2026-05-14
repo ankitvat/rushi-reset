@@ -178,15 +178,17 @@
   }
   @keyframes marquee {
     from {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
     to {
-      transform: translateX(-50%);
+      transform: translate3d(-50%, 0, 0);
     }
   }
   .testimonials-track {
-    animation: marquee 20s linear infinite;
+    animation: marquee 28s linear infinite;
     will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
   .testimonials-marquee:hover .testimonials-track,
   .testimonials-marquee:focus-within .testimonials-track {

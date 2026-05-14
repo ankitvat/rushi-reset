@@ -70,7 +70,7 @@ export function TestimonialsMarquee() {
   return (
     <div
       aria-label="Client testimonials and transformations"
-      className="testimonials-marquee group relative w-full overflow-hidden py-4"
+      className="testimonials-marquee group relative w-full max-w-[100vw] overflow-x-hidden py-4 [touch-action:pan-y]"
     >
       <div
         aria-hidden
@@ -81,7 +81,7 @@ export function TestimonialsMarquee() {
         className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-[linear-gradient(to_left,var(--background),transparent)] md:w-40"
       />
 
-      <div className="testimonials-track flex w-max gap-6 pr-6 md:gap-8 md:pr-8">
+      <div className="testimonials-track flex w-max flex-nowrap items-stretch gap-4 md:gap-8">
         {doubled.map((item, i) =>
           item.kind === "transformation" ? (
             <TransformationCard
@@ -119,7 +119,7 @@ function TransformationCard({
   priority,
 }: TransformationCardProps) {
   return (
-    <figure className="group/card relative h-[26rem] w-[18rem] shrink-0 overflow-hidden rounded-[2rem] border border-border/70 bg-card shadow-[0_24px_70px_-50px_rgba(35,48,26,0.55)] md:h-[32rem] md:w-[22rem]">
+    <figure className="group/card relative h-[24rem] w-[min(17.5rem,calc(100vw-2.5rem))] shrink-0 overflow-hidden rounded-[2rem] border border-border/70 bg-card shadow-[0_24px_70px_-50px_rgba(35,48,26,0.55)] sm:h-[26rem] sm:w-[18rem] md:h-[32rem] md:w-[22rem]">
       <Image
         src={src}
         alt={alt}
@@ -153,7 +153,7 @@ interface TestimonialCardProps {
 
 function TestimonialCard({ quote, name, detail }: TestimonialCardProps) {
   return (
-    <figure className="relative flex h-[26rem] w-[22rem] shrink-0 flex-col justify-between overflow-hidden rounded-[2rem] border border-border/70 bg-card p-7 shadow-[0_24px_70px_-50px_rgba(35,48,26,0.45)] md:h-[32rem] md:w-[30rem] md:p-10">
+    <figure className="relative flex h-[24rem] w-[min(19.5rem,calc(100vw-2.5rem))] shrink-0 flex-col justify-between overflow-hidden rounded-[2rem] border border-border/70 bg-card p-6 shadow-[0_24px_70px_-50px_rgba(35,48,26,0.45)] sm:h-[26rem] sm:w-[22rem] sm:p-7 md:h-[32rem] md:w-[30rem] md:p-10">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,color-mix(in_oklab,var(--meadow)_28%,transparent)_0%,transparent_55%)]"

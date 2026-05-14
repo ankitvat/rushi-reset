@@ -51,15 +51,6 @@ const whoIHelp = [
   "Better energy, digestion, skin & hair",
 ];
 
-const results = [
-  { n: "01", t: "Fat loss without extreme dieting" },
-  { n: "02", t: "Improved strength and muscle tone" },
-  { n: "03", t: "Better hormonal balance" },
-  { n: "04", t: "Clearer skin & healthier hair" },
-  { n: "05", t: "Improved sleep and energy" },
-  { n: "06", t: "A lifestyle you can sustain for life" },
-];
-
 export default function Home() {
   return (
     <div className="relative">
@@ -280,6 +271,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CLIENT TESTIMONIALS + TRANSFORMATIONS — full-bleed marquee */}
+      <section className="relative w-full max-w-[100vw] overflow-x-hidden pb-24 pt-10 md:pb-32 md:pt-14">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-1/2 bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,color-mix(in_oklab,var(--cream)_60%,transparent)_0%,transparent_70%)]"
+        />
+        <div className="mx-auto max-w-3xl px-6 text-center md:px-10">
+          <Reveal>
+            <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
+              (Real clients · Real change)
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h2 className="mt-4 font-[family-name:var(--font-display)] text-5xl leading-[1] tracking-tight md:text-7xl">
+              Testimonials &amp;
+              <br />
+              <span className="italic text-accent">transformations.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.25}>
+            <p className="mx-auto mt-6 max-w-xl text-foreground/75">
+              Bodies rebuilt. Hormones reset. Habits rewired. A glimpse at the
+              kind of change my clients have walked into.
+            </p>
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.35} className="mt-8 min-w-0 w-full max-w-full md:mt-12">
+          <TestimonialsMarquee />
+        </Reveal>
+      </section>
+
       {/* WHY WORK WITH ME (USP) */}
       <section className="relative px-6 py-28 md:px-10 md:py-40">
         <div className="mx-auto w-full max-w-[110rem]">
@@ -406,7 +429,7 @@ export default function Home() {
       </section>
 
       {/* WHO I HELP */}
-      <section className="relative px-6 py-28 md:px-10 md:py-40">
+      <section className="relative px-6 pb-14 pt-28 md:px-10 md:pb-20 md:pt-40">
         <div className="mx-auto w-full max-w-[110rem]">
           <div className="grid gap-10 md:grid-cols-12">
             <Reveal className="md:col-span-5">
@@ -446,69 +469,6 @@ export default function Home() {
             ))}
           </Stagger>
         </div>
-      </section>
-
-      {/* RESULTS */}
-      <section className="relative px-6 py-28 md:px-10 md:py-40">
-        <div className="mx-auto grid w-full max-w-[110rem] gap-12 md:grid-cols-12">
-          <Reveal className="md:col-span-4">
-            <p className="text-xs uppercase tracking-[0.3em] text-foreground/70">
-              (Results you can expect)
-            </p>
-            <h2 className="mt-4 font-[family-name:var(--font-display)] text-5xl leading-[1] tracking-tight md:text-6xl">
-              What changes
-              <span className="italic text-accent"> from the inside out.</span>
-            </h2>
-          </Reveal>
-          <Stagger
-            gap={0.08}
-            className="md:col-span-7 md:col-start-6 grid gap-px bg-border/70 sm:grid-cols-2"
-          >
-            {results.map((r) => (
-              <StaggerItem
-                key={r.n}
-                className="flex items-center gap-6 bg-background p-8"
-              >
-                <span className="font-[family-name:var(--font-display)] text-2xl text-accent">
-                  {r.n}
-                </span>
-                <span className="text-lg text-foreground/85">{r.t}</span>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
-      {/* CLIENT TESTIMONIALS + TRANSFORMATIONS — full-bleed marquee */}
-      <section className="relative py-28 md:py-40">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-1/2 bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,color-mix(in_oklab,var(--cream)_60%,transparent)_0%,transparent_70%)]"
-        />
-        <div className="mx-auto max-w-3xl px-6 text-center md:px-10">
-          <Reveal>
-            <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
-              (Real clients · Real change)
-            </p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h2 className="mt-4 font-[family-name:var(--font-display)] text-5xl leading-[1] tracking-tight md:text-7xl">
-              Testimonials &amp;
-              <br />
-              <span className="italic text-accent">transformations.</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={0.25}>
-            <p className="mx-auto mt-6 max-w-xl text-foreground/75">
-              Bodies rebuilt. Hormones reset. Habits rewired. A glimpse at the
-              kind of change my clients have walked into.
-            </p>
-          </Reveal>
-        </div>
-
-        <Reveal delay={0.35} y={40} className="mt-14 md:mt-20">
-          <TestimonialsMarquee />
-        </Reveal>
       </section>
 
       {/* EMBODIMENT */}

@@ -8,7 +8,6 @@ import { CALENDLY_URL } from "@/lib/utils";
 interface NavItem {
   href: string;
   label: string;
-  external?: boolean;
 }
 
 interface MobileNavProps {
@@ -34,7 +33,7 @@ export function MobileNav({ items }: MobileNavProps) {
         aria-label="Toggle menu"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full transition-colors hover:bg-current/10"
+        className="relative z-110 flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full transition-colors hover:bg-current/10"
       >
         <span
           className={`block h-px w-4 bg-current transition-transform duration-300 ${
@@ -56,7 +55,7 @@ export function MobileNav({ items }: MobileNavProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background"
+            className="fixed inset-0 z-100 isolate bg-background text-foreground antialiased"
           >
             <motion.nav
               initial="hidden"
@@ -66,7 +65,7 @@ export function MobileNav({ items }: MobileNavProps) {
                 hidden: {},
                 show: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } },
               }}
-              className="flex h-full flex-col items-start justify-center gap-6 px-8"
+              className="flex h-full flex-col items-start justify-center gap-6 px-8 text-foreground"
             >
               {items.map((item) => (
                 <motion.div
@@ -77,25 +76,13 @@ export function MobileNav({ items }: MobileNavProps) {
                   }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  {item.external ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => setOpen(false)}
-                      className="font-[family-name:var(--font-display)] text-5xl tracking-tight"
-                    >
-                      {item.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      className="font-[family-name:var(--font-display)] text-5xl tracking-tight"
-                    >
-                      {item.label}
-                    </Link>
-                  )}
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="font-[family-name:var(--font-display)] text-5xl tracking-tight text-foreground transition-colors hover:text-accent"
+                  >
+                    {item.label}
+                  </Link>
                 </motion.div>
               ))}
               <motion.div
