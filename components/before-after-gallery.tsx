@@ -61,7 +61,7 @@ export function BeforeAfterGallery() {
             </p>
             <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl border border-border/60 shadow-[0_20px_50px_-36px_rgba(35,48,26,0.35)] transition-transform duration-500 ease-out group-hover:scale-[1.02] md:rounded-2xl">
               <Image
-                src="/arushi--after.jpg"
+                src="/arushi--after.jpeg"
                 alt="Aarushi after sustainable nutrition and training"
                 fill
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"

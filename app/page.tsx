@@ -130,10 +130,12 @@ export default function Home() {
                       muted
                       loop
                       playsInline
+                      preload="metadata"
                       poster="/workout-image.jpg"
                       aria-label="Strength training and movement — part of a sustainable coaching approach"
                     >
-                      <source src="/workout-video.MOV" type="video/quicktime" />
+                      <source src="/workout-video.webm" type="video/webm" />
+                      <source src="/workout-video.mp4" type="video/mp4" />
                     </video>
                     <div
                       aria-hidden
@@ -236,9 +238,12 @@ export default function Home() {
                 muted
                 loop
                 playsInline
+                preload="metadata"
+                poster="/food-image.jpg"
                 aria-label="Meal prep and sustainable nutrition habits"
               >
-                <source src="/food-1.MOV" type="video/quicktime" />
+                <source src="/food-1.webm" type="video/webm" />
+                <source src="/food-1.mp4" type="video/mp4" />
               </video>
             </div>
           </Reveal>

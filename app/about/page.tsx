@@ -270,9 +270,12 @@ export default function AboutPage() {
                   muted
                   loop
                   playsInline
+                  preload="metadata"
+                  poster="/food-image.jpg"
                   aria-label="Nutrition and meals as part of personalized coaching"
                 >
-                  <source src="/food-2.MOV" type="video/quicktime" />
+                  <source src="/food-2.webm" type="video/webm" />
+                  <source src="/food-2.mp4" type="video/mp4" />
                 </video>
               </div>
             </div>
