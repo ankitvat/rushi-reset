@@ -39,12 +39,12 @@ export function BeforeAfterGallery() {
               Before
             </p>
             <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl border border-border/60 shadow-[0_20px_50px_-36px_rgba(35,48,26,0.35)] transition-transform duration-500 ease-out group-hover:scale-[1.02] md:rounded-2xl">
-              {/* next/image does not optimize HEIC; Safari OK, Chrome often needs JPG */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/arushi-before.HEIC"
+              <Image
+                src="/arushi-before.jpeg"
                 alt="Aarushi before her health transformation"
-                className="absolute inset-0 size-full object-cover"
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                sizes="(min-width: 768px) 320px, 100vw"
               />
             </div>
           </motion.div>
