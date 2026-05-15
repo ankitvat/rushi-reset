@@ -29,7 +29,9 @@ export function BeforeAfterGallery() {
 
         <div className="mx-auto grid w-full max-w-sm gap-5 sm:max-w-md md:max-w-2xl md:grid-cols-2 md:gap-6 lg:max-w-3xl">
           <motion.div
-            initial={prefersReduced ? false : { opacity: 0, x: -32, scale: 0.98 }}
+            initial={
+              prefersReduced ? false : { opacity: 0, x: -32, scale: 0.98 }
+            }
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true, margin: "-8% 0px" }}
             transition={{ duration: 0.85, ease, delay: 0.05 }}
@@ -50,7 +52,9 @@ export function BeforeAfterGallery() {
           </motion.div>
 
           <motion.div
-            initial={prefersReduced ? false : { opacity: 0, x: 32, scale: 0.98 }}
+            initial={
+              prefersReduced ? false : { opacity: 0, x: 32, scale: 0.98 }
+            }
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true, margin: "-8% 0px" }}
             transition={{ duration: 0.85, ease, delay: 0.12 }}
@@ -64,7 +68,7 @@ export function BeforeAfterGallery() {
                 src="/arushi--after.jpeg"
                 alt="Aarushi after sustainable nutrition and training"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                className="scale-[1.6] object-cover object-[60%_90%] transition-transform duration-500 ease-out group-hover:scale-[1.55]"
                 sizes="(min-width: 768px) 320px, 100vw"
               />
             </div>
