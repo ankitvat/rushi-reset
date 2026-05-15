@@ -262,6 +262,20 @@ export default function AboutPage() {
               No two bodies are the same — so no two plans are either.
               Here&apos;s how we work together.
             </p>
+            <div className="mt-10 max-w-sm md:mt-12 md:max-w-none">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border/50 shadow-[0_20px_60px_-40px_rgba(35,48,26,0.3)]">
+                <video
+                  className="absolute inset-0 size-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  aria-label="Nutrition and meals as part of personalized coaching"
+                >
+                  <source src="/food-2.MOV" type="video/quicktime" />
+                </video>
+              </div>
+            </div>
           </Reveal>
           <Stagger gap={0.1} className="md:col-span-7 md:col-start-6 space-y-6">
             {[

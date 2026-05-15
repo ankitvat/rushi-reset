@@ -235,13 +235,13 @@ export default function PlansPage() {
                 </h2>
               </Reveal>
               <Reveal delay={0.2}>
-                <div className="relative mt-10 aspect-[5/4] w-full overflow-hidden rounded-[2rem] ring-1 ring-primary-foreground/15 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.35)]">
+                <div className="relative mx-auto mt-8 aspect-[4/3] w-full max-w-[16rem] overflow-hidden rounded-2xl ring-1 ring-primary-foreground/15 shadow-[0_20px_50px_-28px_rgba(0,0,0,0.35)] sm:max-w-[18rem] md:mx-0 md:mt-10 md:max-w-[20rem] lg:max-w-[22rem]">
                   <Image
                     src="/image-5.jpg"
                     alt="Personal coaching — support, accountability, and real-life guidance"
                     fill
                     className="object-cover"
-                    sizes="(min-width: 768px) 40vw, 100vw"
+                    sizes="(min-width: 768px) 320px, 256px"
                   />
                 </div>
               </Reveal>

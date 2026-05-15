@@ -6,6 +6,7 @@ import { Marquee } from "@/components/marquee";
 import { HeroMouse, MouseLayer } from "@/components/hero-mouse";
 import { SketchArrow } from "@/components/sketch-arrow";
 import { TestimonialsMarquee } from "@/components/testimonials-marquee";
+import { BeforeAfterGallery } from "@/components/before-after-gallery";
 
 const usp = [
   {
@@ -123,14 +124,17 @@ export default function Home() {
               <MouseLayer depth={42}>
                 <Reveal y={60}>
                   <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1rem] shadow-[0_24px_70px_-40px_rgba(35,48,26,0.45)]">
-                    <Image
-                      src="/workout-image.jpg"
-                      alt="Strength training and movement — part of a sustainable coaching approach"
-                      fill
-                      className="object-cover"
-                      sizes="(min-width: 768px) 40vw, 100vw"
-                      priority
-                    />
+                    <video
+                      className="absolute inset-0 size-full object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      poster="/workout-image.jpg"
+                      aria-label="Strength training and movement — part of a sustainable coaching approach"
+                    >
+                      <source src="/workout-video.MOV" type="video/quicktime" />
+                    </video>
                     <div
                       aria-hidden
                       className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(35,48,26,0.25)_0%,transparent_40%)]"
@@ -207,6 +211,37 @@ export default function Home() {
               </Link>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      <BeforeAfterGallery />
+
+      {/* FOOD — real meals */}
+      <section className="relative px-6 pb-16 md:px-10 md:pb-24">
+        <div className="mx-auto w-full max-w-[110rem]">
+          <Reveal>
+            <p className="text-xs uppercase tracking-[0.3em] text-foreground/70">
+              (Nutrition in practice)
+            </p>
+            <h2 className="mt-3 max-w-2xl font-[family-name:var(--font-display)] text-3xl leading-[1.1] tracking-tight md:text-4xl">
+              Food that fits
+              <span className="italic text-accent"> real life.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.12} className="mt-8">
+            <div className="relative aspect-video w-full overflow-hidden rounded-[1.25rem] border border-border/50 shadow-[0_24px_70px_-40px_rgba(35,48,26,0.35)] md:rounded-[2rem]">
+              <video
+                className="absolute inset-0 size-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="Meal prep and sustainable nutrition habits"
+              >
+                <source src="/food-1.MOV" type="video/quicktime" />
+              </video>
+            </div>
+          </Reveal>
         </div>
       </section>
 

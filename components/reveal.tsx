@@ -51,11 +51,12 @@ export function Stagger({
   delay = 0,
   gap = 0.1,
 }: StaggerProps) {
+  const prefersReduced = useReducedMotion();
   return (
     <motion.div
-      initial="hidden"
+      initial={prefersReduced ? "show" : "hidden"}
       whileInView="show"
-      viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+      viewport={{ once: true, amount: 0.05 }}
       variants={{
         hidden: {},
         show: {
@@ -80,10 +81,11 @@ export function StaggerItem({
   className,
   y = 24,
 }: StaggerItemProps) {
+  const prefersReduced = useReducedMotion();
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y },
+        hidden: prefersReduced ? { opacity: 1, y: 0 } : { opacity: 0, y },
         show: {
           opacity: 1,
           y: 0,
